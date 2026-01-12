@@ -7,7 +7,6 @@ public class CriteriaChecker
    {
        int score = 0;
 
-
        boolean hasUpperCase = false;
        boolean hasLowerCase = false;
        boolean hasDigit = false;
@@ -17,18 +16,12 @@ public class CriteriaChecker
        String specialCharacters = "!@#$%^&*()-_=+|[]{};:/?.";
 
 
-
-
        if (password.length() >= 8) {
            score++;
        }
 
-
-
-
        for (int i = 0; i < password.length(); i++) {
            char ch = password.charAt(i);
-
 
            if (Character.isUpperCase(ch)) {
                hasUpperCase = true;
@@ -40,13 +33,11 @@ public class CriteriaChecker
                hasDigit = true;
            }
 
-
            for (int j = 0; j < specialCharacters.length(); j++)
                if (ch == specialCharacters.charAt((j))) {
                    hasSpecialChar = true;
            }
        }
-
 
        if (hasUpperCase) score++;
        if (hasLowerCase) score++;
