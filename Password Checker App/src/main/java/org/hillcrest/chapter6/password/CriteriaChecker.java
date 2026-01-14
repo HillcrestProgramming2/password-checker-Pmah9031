@@ -1,6 +1,5 @@
 package org.hillcrest.chapter6.password;
 
-
 /**
  * Utility class that checks a password against specific strength criteria.
  *
@@ -9,7 +8,6 @@ package org.hillcrest.chapter6.password;
  *
  * All methods are static because this class is not meant to be instantiated.
  */
-
 public class CriteriaChecker
 {
     /**
@@ -27,43 +25,23 @@ public class CriteriaChecker
      */
     public static int evaluateCriteria(String password)
     {
+        // Tracks the total number of criteria met
+        int score = 0;
 
-
-
+        // Flags for each password requirement
         boolean hasUpperCase = false;
         boolean hasLowerCase = false;
         boolean hasDigit = false;
         boolean hasSpecialChar = false;
 
-        // Tracks the total number of criteria met
-        int score = 0;
-
-
-        
         // List of allowed special characters
         String specialCharacters = "!@#$%^&*()-_=+|[]{};:/?.";
 
-
-
-
         // Check password length (only needs to be checked once)
-
         if (password.length() >= 8) {
             score++;
         }
 
-
-
-        for (int i = 0; i < password.length(); i++) {
-            char ch = password.charAt(i);
-
-            if (Character.isUpperCase(ch)) {
-                hasUpperCase = true;
-            }
-            if (Character.isLowerCase(ch)) {
-                hasLowerCase = true;
-            }
-=======
         // Loop through each character in the password
         for (int i = 0; i < password.length(); i++) {
             char ch = password.charAt(i);
@@ -79,18 +57,9 @@ public class CriteriaChecker
             }
 
             // Check for digits
-
             if (Character.isDigit(ch)) {
                 hasDigit = true;
             }
-
-
-            for (int j = 0; j < specialCharacters.length(); j++)
-                if (ch == specialCharacters.charAt((j))) {
-                    hasSpecialChar = true;
-            }
-        }
-
 
             // Check for special characters using a loop
             for (int j = 0; j < specialCharacters.length(); j++) {
@@ -101,19 +70,14 @@ public class CriteriaChecker
         }
 
         // Add to score for each criterion that was met
-
         if (hasUpperCase) score++;
         if (hasLowerCase) score++;
         if (hasDigit) score++;
         if (hasSpecialChar) score++;
 
-
+        // Return the final score (0–5)
         return score;
     }
-
-
-
-
 
     /**
      * Determines the overall strength of a password based on its score.
@@ -121,7 +85,6 @@ public class CriteriaChecker
      * @param score the number of criteria met (0–5)
      * @return "Weak" for scores 0–2, "Moderate" for 3, and "Strong" for 4–5
      */
-
     public static String determineStrength(int score)
     {
         if (score <= 2) {
@@ -133,6 +96,4 @@ public class CriteriaChecker
         }
     }
 }
-
-
 
