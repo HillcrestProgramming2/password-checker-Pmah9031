@@ -2,28 +2,6 @@ package org.hillcrest.chapter6.password;
 
 import java.util.Scanner;
 
-<<<<<<< HEAD
-public class PasswordCheckerApp
-{
-    public static void main(String[] args)
-    {
-        Scanner sc = new Scanner(System.in);
-
-        System.out.print("Enter a password: ");
-        String password = sc.nextLine();
-
-        int score = CriteriaChecker.evaluateCriteria(password);
-        String strength = CriteriaChecker.determineStrength(score);
-
-        String feedback = FeedbackGenerator.generateFeedback(password);
-
-        // Print strength + score
-        System.out.println();
-        System.out.println("Password Strength: " + strength + " (" + score + "/5)");
-
-        // Only print suggestions if feedback is not empty AND not strong
-        if (score <=1) {
-=======
 /**
  * Main application class for the Password Strength Checker program.
  *
@@ -39,7 +17,7 @@ public class PasswordCheckerApp
      * This method prompts the user to enter a password, evaluates the password
      * strength, generates feedback if needed, and prints the results to the console.
      *
-     * @param 
+     * @param arguments
      */
     public static void main(String[] args)
     {
@@ -65,16 +43,10 @@ public class PasswordCheckerApp
 
         // Display suggestions only when the password is weak
         if (score <= 1) {
->>>>>>> 231e96834a115a12ec0d3b6ca566fbfc666e52b1
             System.out.println("Suggestions to improve your password:");
             System.out.print(feedback);
         }
-
-<<<<<<< HEAD
-
-=======
-        
->>>>>>> 231e96834a115a12ec0d3b6ca566fbfc666e52b1
     }
 }
+
 
