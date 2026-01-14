@@ -1,37 +1,48 @@
 package org.hillcrest.chapter6.password;
 
-
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
 
 public class CriteriaCheckerTest
 {
-    public static int evaluateCriteria(String password)
+    @Test
+    public void testWeakPassword()
     {
-        int score =5
+        String password = "12345";
+        int score = CriteriaChecker.evaluateCriteria(password);
 
-        String specialCharacters = "!@#$%^&*()-_=+|[]{};:/?.";
-        for(int i = 0; i < password.length();i++) {
-            char ch = password.charAt(i);
-
-            if (password.length() > 8);
-            {
-                score++;
-            }
-            if(Character.isUpperCase(ch)){
-                score++;
-            }
-            if(Character.isLowerCase(ch)){
-                score++;
-            }
-            if(Character.isDigit(ch)){
-                score++;
-            }
-            for (int j = 0; j <specialCharacters.length(); j++)
-                if(ch == specialCharacters.charAt((j))
-
-
-
-        }
-
+        assertEquals(1, score);
+        assertEquals("Weak", CriteriaChecker.determineStrength(score));
     }
 
+    @Test
+    public void testModeratePassword()
+    {
+        String password = "password123";
+        int score = CriteriaChecker.evaluateCriteria(password);
+
+        assertEquals(3, score);
+        assertEquals("Moderate", CriteriaChecker.determineStrength(score));
+    }
+
+    @Test
+    public void testStrongPassword()
+    {
+        String password = "Secure@2024";
+        int score = CriteriaChecker.evaluateCriteria(password);
+
+        assertEquals(5, score);
+        assertEquals("Strong", CriteriaChecker.determineStrength(score));
+    }
+
+    @Test
+    public void testMinimumLength()
+    {
+        String password = "Ab1@abcd";
+        int score = CriteriaChecker.evaluateCriteria(password);
+
+        assertEquals(5, score);
+    }
 }
+
+
