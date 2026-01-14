@@ -1,13 +1,5 @@
 package org.hillcrest.chapter6.password;
 
-<<<<<<< HEAD
-public class FeedbackGenerator
-{
-    public static String generateFeedback(String password)
-    {
-        String feedback = "";
-
-=======
 /**
  * Utility class that generates feedback for improving a password.
  *
@@ -34,37 +26,19 @@ public class FeedbackGenerator
         String feedback = "";
 
         // Flags to track which criteria are met
->>>>>>> 231e96834a115a12ec0d3b6ca566fbfc666e52b1
         boolean hasUpper = false;
         boolean hasLower = false;
         boolean hasDigit = false;
         boolean hasSpecial = false;
 
-<<<<<<< HEAD
-        String specialCharacters = "!@#$%^&*()-+=";
-
-=======
         // List of allowed special characters
         String specialCharacters = "!@#$%^&*()-+=";
 
         // Check if the password meets the minimum length requirement
->>>>>>> 231e96834a115a12ec0d3b6ca566fbfc666e52b1
         if (password.length() < 8) {
             feedback += "Increase the length to at least 8 characters.\n";
         }
 
-<<<<<<< HEAD
-        for (int i = 0; i < password.length(); i++) {
-            char ch = password.charAt(i);
-
-            if (Character.isUpperCase(ch)) {
-                hasUpper = true;
-            } else if (Character.isLowerCase(ch)) {
-                hasLower = true;
-            } else if (Character.isDigit(ch)) {
-                hasDigit = true;
-            } else if (specialCharacters.indexOf(ch) != -1) {
-=======
         // Loop through each character in the password
         for (int i = 0; i < password.length(); i++) {
             char ch = password.charAt(i);
@@ -83,15 +57,11 @@ public class FeedbackGenerator
             }
             // Check for special characters
             else if (specialCharacters.indexOf(ch) != -1) {
->>>>>>> 231e96834a115a12ec0d3b6ca566fbfc666e52b1
                 hasSpecial = true;
             }
         }
 
-<<<<<<< HEAD
-=======
         // Add feedback for any missing criteria
->>>>>>> 231e96834a115a12ec0d3b6ca566fbfc666e52b1
         if (!hasUpper) {
             feedback += "Add at least one uppercase letter.\n";
         }
@@ -105,10 +75,7 @@ public class FeedbackGenerator
             feedback += "Include at least one special character.\n";
         }
 
-<<<<<<< HEAD
-=======
         // If no feedback was added, the password meets all criteria
->>>>>>> 231e96834a115a12ec0d3b6ca566fbfc666e52b1
         if (feedback.equals("")) {
             feedback = "Your password is strong.";
         }
@@ -116,5 +83,4 @@ public class FeedbackGenerator
         return feedback;
     }
 }
-
 
